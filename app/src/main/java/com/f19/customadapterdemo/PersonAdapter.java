@@ -47,10 +47,4 @@ public class PersonAdapter extends ArrayAdapter {
 
         return v;
     }
-
-    @Nullable
-    @Override
-    public Object getItem(int position) {
-        return super.getItem(position);
-    }
 }
