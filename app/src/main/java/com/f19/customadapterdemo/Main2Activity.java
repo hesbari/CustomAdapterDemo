@@ -15,17 +15,18 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        final Intent intent = getIntent();
+        Intent intent = getIntent();
         Person p = (Person) intent.getSerializableExtra("person");
         TextView textView = findViewById(R.id.textView);
-        textView.setText(p.name);
+        textView.setText(p.toString());
 
         Button btn = findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(Main2Activity.this, Main3Activity.class);
-                startActivity(intent1);
+                Intent i = new Intent(Main2Activity.this, Main3Activity.class);
+//                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
             }
         });
     }

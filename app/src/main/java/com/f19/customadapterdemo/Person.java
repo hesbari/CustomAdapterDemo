@@ -1,5 +1,7 @@
 package com.f19.customadapterdemo;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Person implements Serializable {
@@ -12,5 +14,11 @@ public class Person implements Serializable {
         this.name = name;
         this.id = id;
         this.email = email;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name + "\n" + id + "\n" + email;
     }
 }
