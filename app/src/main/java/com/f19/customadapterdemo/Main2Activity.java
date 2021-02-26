@@ -16,7 +16,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         Intent intent = getIntent();
-        Person p = (Person) intent.getSerializableExtra("person");
+        Students p = (Students) intent.getSerializableExtra("student");
         TextView textView = findViewById(R.id.textView);
         textView.setText(p.toString());
 

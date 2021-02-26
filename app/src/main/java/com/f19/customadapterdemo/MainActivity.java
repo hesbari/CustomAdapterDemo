@@ -10,33 +10,37 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    List<Students> StudentList;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
 
-        List<Person> personList = new ArrayList<>();
+         StudentList = new ArrayList<>();
 
         for (int i = 1; i <= 20 ; i++) {
-            Person person = new Person("Person" + i , i, "person"+i+"@mail.com");
-            personList.add(person);
+
+            Students student = new Students("student" + i , i, "student"+i+"@mail.com",i*5);
+            StudentList.add(student);
         }
 
-        PersonAdapter personAdapter = new PersonAdapter(this, R.layout.person_layout, personList);
+        StudentAdapter personAdapter = new StudentAdapter(this, R.layout.person_layout, StudentList);
         listView.setAdapter(personAdapter);
-
+//------------------------------------------------------------------------------------------------//
         Button btn = findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Person person = new Person("a", 1, "d@d");
+                Students person = StudentList.get(new Random().nextInt(StudentList.size()));
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                intent.putExtra("person", person);
+                intent.putExtra("student", person);
                 startActivity(intent);
             }
         });

@@ -12,23 +12,23 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class PersonAdapter extends ArrayAdapter {
+public class StudentAdapter extends ArrayAdapter {
 
-    private List<Person> persons;
+    private List<Students> students;
     private final LayoutInflater layoutInflater;
     private final int layoutResource;
 
 
-    public PersonAdapter(@NonNull Context context, int resource, List<Person> persons) {
+    public StudentAdapter(@NonNull Context context, int resource, List<Students> students) {
         super(context, resource);
-        this.persons = persons;
+        this.students =students ;
         this.layoutInflater = LayoutInflater.from(context);
         this.layoutResource = resource;
     }
 
     @Override
     public int getCount() {
-        return persons.size();
+        return students.size();
     }
 
     @NonNull
@@ -41,9 +41,12 @@ public class PersonAdapter extends ArrayAdapter {
         TextView idText = v.findViewById(R.id.id);
         TextView emailText = v.findViewById(R.id.email);
 
-        nameText.setText(persons.get(position).name);
-        idText.setText(String.valueOf(persons.get(position).id));
-        emailText.setText(persons.get(position).email);
+
+        nameText.setText(students.get(position).name);
+        idText.setText(String.valueOf(students.get(position).id));
+        emailText.setText(students.get(position).email);
+
+
 
         return v;
     }
